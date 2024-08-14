@@ -73,7 +73,7 @@
                     finalHtml += '<div class="title">' + blog.title + '</div>';
                     finalHtml += '<div class="date">' + blog.createTime + '</div>';
 
-                    let newContent = blog.content.replace("#", "");// 用空字符替换正文中的#
+                    let newContent = blog.content.replace(/#/g, "");// 删除所有'#'
 
                     finalHtml += '<div class="desc">' + newContent + '</div>';
                     finalHtml += '<a class="detail" href="blog_detail.html?blogId=' + blog.blogId + '">查看全文&gt;&gt;</a>';
