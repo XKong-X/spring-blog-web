@@ -80,9 +80,11 @@
                         alert(result.errorMsg);
                     }
                 },
-                error: function (error) {
-                    if (error != null && error.status == 401) {
-                        alert("用户未登录, 登录后再进行对应操作");
+                error: function (result) {
+                    console.log(result);
+                    if (result != null && result.status == 401) {
+                        alert("请先登录!");
+                        location.href = "blog_login.html";
                     }
                 }
             });
@@ -111,7 +113,14 @@
                     } else {
                         alert(result.errorMsg);
                     }
-                }// 获取博客的标题和正文已进行过登录校验
+                },
+                error: function (result) {
+                    console.log(result);
+                    if (result != null && result.status == 401) {
+                        alert("请先登录!");
+                        location.href = "blog_login.html";
+                    }
+                }
             });
         }
     </script>

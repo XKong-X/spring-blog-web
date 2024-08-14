@@ -142,7 +142,14 @@
                } else {
                    alert(result.errorMsg);
                }
-           }// 获取博客详情时已校验过是否登录
+           },
+            error: function (result) {
+                console.log(result);
+                if (result != null && result.status == 401) {
+                    alert("请先登录!");
+                    location.href = "blog_login.html";
+                }
+            }
         });
     }
 </script>
